@@ -1,0 +1,52 @@
+﻿@page "/kalkV_Short"
+<PageTitle>Kalkulačka V1</PageTitle>
+
+<h1>Základní matematické operace - Short</h1>
+<hr />
+<label>Číslo 1: <input @bind="cislo1" /></label>
+<br />
+<label>Číslo 2: <input @bind="cislo2" /></label>
+<div class="m-3">
+    <button @onclick="Soucet" class="btn" style="width:130px">Součet (+)</button>
+    <button @onclick="Rozdil" class="btn btn-primary" style="width:130px">Rozdíl (-)</button>
+    <button @onclick="Soucin" class="btn btn-secondary" style="width:130px">Součin (*)</button>
+    <button @onclick="Podil" class="btn btn-success" style="width:130px">Podíl (/)</button>
+</div>
+<label>Výsledek: <input @bind="vysledek" readonly /></label>
+
+@code {
+    private short cislo1;  //pro ulozeni 1. cisla
+    private short cislo2;
+    private short vysledek;
+
+    /// <summary>
+    /// Sečtou se 2 čísla
+    /// </summary>
+    private void Soucet()
+    {
+        vysledek = (short)(cislo1 + cislo2);
+    }
+    /// <summary>
+    /// Odečtou se 2 čísla
+    /// </summary>
+    private void Rozdil()
+    {
+        vysledek = (short)(cislo1 - cislo2);
+    }
+
+    /// <summary>
+    /// Vynasobi se 2 čísla
+    /// </summary>
+    private void Soucin()
+    {
+        vysledek = (short)(cislo1 * cislo2);
+    }
+
+    /// <summary>
+    /// Podelí se 2 čísla
+    /// </summary>
+    private void Podil()
+    {
+        vysledek = (short)(cislo1 / cislo2);
+    }
+}
